@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kelompok Meteorologi Terapan 2025</title>
+    <style>
+      /* 🌸 Tema umum */
+      body {
+        font-family: "Poppins", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffb6c1, #ffcce0); /* pink lembut */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000; /* teks hitam */
+        overflow: hidden;
+      }
+
+      /* ☁️ Awan lucu di latar belakang */
+      .cloud {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: float 20s linear infinite;
+      }
+      .cloud::before,
+      .cloud::after {
+        content: "";
+        position: absolute;
+        background: white;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      .cloud::before {
+        top: -20px;
+        left: 25px;
+      }
+      .cloud::after {
+        top: 10px;
+        left: -25px;
+      }
+
+      @keyframes float {
+        from {
+          left: -200px;
+        }
+        to {
+          left: 110%;
+        }
+      }
+
+      /* 🩷 Kotak utama */
+      .container {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 50px;
+        border-radius: 25px;
+        box-shadow: 0 6px 20px rgba(255, 105, 180, 0.3);
+        max-width: 600px;
+        z-index: 2;
+        position: relative;
+        animation: bounce 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(0px);
+        }
+        100% {
+          transform: translateY(-8px);
+        }
+      }
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 28px;
+        color: #ff4081;
+      }
+      h2 {
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 25px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 30px 0;
+      }
+
+      li {
+        font-size: 18px;
+        margin: 8px 0;
+        background: #ffe6f2;
+        padding: 6px 12px;
+        border-radius: 12px;
+        display: inline-block;
+      }
+
+      /* 💖 Tombol manis */
+      button {
+        background: #ff80ab;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      }
+
+      button:hover {
+        background: #ff4081;
+        transform: scale(1.05);
+      }
+
+      /* ✨ Hiasan emoji */
+      .emoji {
+        font-size: 30px;
+        margin-top: 10px;
+        animation: spin 6s linear infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ☁️ Awan bergerak -->
+    <div class="cloud" style="width:120px; height:60px; top:20%; animation-delay:0s;"></div>
+    <div class="cloud" style="width:100px; height:50px; top:60%; animation-delay:5s;"></div>
+    <div class="cloud" style="width:150px; height:70px; top:40%; animation-delay:10s;"></div>
+
+    <!-- 🩷 Konten utama -->
+    <div class="container">
+      <h1>🌦️ Praktikum Meteorologi Terapan 2025</h1>
+      <h2>💗 Kelompok 1 — ITERA</h2>
+      <ul>
+        <li>Nikita Aulia T — 122290023</li>
+        <li>M. Agung Agustianto — 122290028</li>
+        <li>Khairunisa Rahmayanti — 122290060</li>
+        <li>Balqis Vidya Aisya — 122290068</li>
+        <li>Shifa Yuke - 122290055</li>
+      </ul>
+      <button onclick="masuk()">✨ Open WebGIS ✨</button>
+      <div class="emoji">🌈☁️💖</div>
+    </div>
+
+    <script>
+      function masuk() {
+        window.location.href = "webgis.html";
+      }
+    </script>
+  </body>
+</html>

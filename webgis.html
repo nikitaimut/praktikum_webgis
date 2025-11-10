@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>WebGIS Gabungan - Meteorologi Terapan 2025</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffe6f2;
+      color: #000;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      color: #ff4081;
+      padding: 20px 0;
+    }
+    .buttons {
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #ff80ab;
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 5px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ff4d94;
+    }
+    iframe {
+      width: 90%;
+      height: 600px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🩷 WebGIS Gabungan Praktikum Meteorologi Terapan 2025 🩷</h1>
+
+  <div class="buttons">
+    <button onclick="tampilkan(1)">Peta 1 - SUMBER GARIS dan AREA</button>
+    <button onclick="tampilkan(2)">Peta 2 - AERMOD</button>
+    <button onclick="tampilkan(3)">Peta 3 - WRPLOT</button>
+    <button onclick="tampilkan(4)">Peta 4 - HYSPLIT</button>
+  </div>
+
+  <iframe id="petaFrame" src="qgis2web_1/index.html"></iframe>
+
+  <script>
+    function tampilkan(nomor) {
+      const iframe = document.getElementById("petaFrame");
+      iframe.src = `qgis2web_${nomor}/index.html`;
+    }
+  </script>
+</body>
+</html>
