@@ -2,22 +2,88 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WebGIS Gabungan - Meteorologi Terapan 2025</title>
+
   <style>
+    /* 🌸 Tampilan umum */
     body {
       font-family: 'Poppins', sans-serif;
-      background: #ffe6f2;
-      color: #000;
+      background: linear-gradient(180deg, #ffb6c1 0%, #ff99cc 100%);
+      color: #fff;
       margin: 0;
       text-align: center;
     }
+
     h1 {
-      color: #ff4081;
-      padding: 20px 0;
+      color: #fff;
+      padding: 25px 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.1);
+      margin: 0;
     }
+
+    /* 📘 Kontainer utama */
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* 🩷 Card box */
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: left;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    h2, h3 {
+      color: #fff;
+      margin-top: 0;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+      padding-bottom: 5px;
+    }
+
+    p, li {
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .lead {
+      text-align: justify;
+      margin-top: 10px;
+    }
+
+    .list {
+      list-style: square;
+      padding-left: 20px;
+    }
+
+    /* 💖 Grid dua kolom untuk sumber */
+    .grid.duo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    /* 💕 Tombol */
     .buttons {
-      margin-bottom: 10px;
+      margin: 30px 0;
     }
+
     button {
       background-color: #ff80ab;
       border: none;
@@ -27,16 +93,44 @@
       cursor: pointer;
       margin: 5px;
       transition: 0.3s;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
     }
+
     button:hover {
       background-color: #ff4d94;
+      transform: scale(1.05);
     }
+
+    /* 🗺️ Peta */
     iframe {
       width: 90%;
       height: 600px;
       border: none;
       border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+      margin-bottom: 40px;
+    }
+
+    /* 🩵 Footer */
+    footer {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px 0;
+      color: #fff;
+      border-top: 2px solid rgba(255, 255, 255, 0.4);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    footer .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -44,6 +138,34 @@
 <body>
   <h1>🩷 WebGIS Gabungan Praktikum Meteorologi Terapan 2025 🩷</h1>
 
+  <main role="main">
+    <!-- 📘 Deskripsi -->
+    <section class="hero">
+      <div class="card">
+        <h2>METEOROLOGI TERAPAN 2025</h2>
+        <p class="lead">  
+          Website ini merupakan hasil dari seluruh modul yang dijalankan selama praktikum Meteorologi Terapan tahun 2025 berlangsung.
+          Melalui website ini, diharapkan praktikan dapat melakukan publikasi sederhana pada tugas-tugas atau aktivitas yang dilakukan selama perkuliahan.
+          Website ini dibangun menggunakan struktur <code>qgis2web</code> dari ekstensi aplikasi QGIS.
+        </p>
+      </div>
+    </section>
+
+    <!-- 📊 Sumber Data -->
+    <section class="grid duo" id="sumber">
+      <div class="card">
+        <h3 id="sumber-title">Sumber Data</h3>
+        <ul class="list">
+          <li>Windrose : ECMWF Reanalysis 5 (ERA5)</li>
+          <li>Inventarisasi Emisi & AERMOD : Data Primer (Hasil Observasi)</li>
+          <li>Model HYSPLIT : Global Forecast System (GFS)</li>
+          <li>Basemap : Carto Positron DB</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🌦️ Tombol-tombol peta -->
   <div class="buttons">
     <button onclick="tampilkan(1)">Peta 1 - SUMBER GARIS dan AREA</button>
     <button onclick="tampilkan(2)">Peta 2 - AERMOD</button>
@@ -51,7 +173,21 @@
     <button onclick="tampilkan(4)">Peta 4 - HYSPLIT</button>
   </div>
 
+  <!-- 🗺️ Area tampilan peta -->
   <iframe id="petaFrame" src="qgis2web_1/index.html"></iframe>
+
+  <!-- 🩵 Footer -->
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="card" id="tentang">
+        <h3 id="tentang-title">Tentang</h3>
+        <p class="muted">
+          Dedicated for Atmospheric and Planetary Science, Institut Teknologi Sumatera (ITERA).
+        </p>
+      </div>
+      <small>© 2025 • Meteorologi Terapan</small>
+    </div>
+  </footer>
 
   <script>
     function tampilkan(nomor) {
@@ -61,3 +197,4 @@
   </script>
 </body>
 </html>
+
